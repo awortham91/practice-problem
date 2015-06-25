@@ -1,0 +1,17 @@
+<h1> does it work</h1>
+
+<%= form_for @player do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <% if params[:team_id] == nil %>
+    <%= f.label :team_id %>
+    <%= f.collection_select(:team_id, Team.all, :id, :name) %>
+  <% else %>
+    <%= f.hidden_field(:team_id, value: params[:team_id]) %>
+  <% end %>
+
+
+  <%= f.submit "Add Player" %>
+<%- end -%>

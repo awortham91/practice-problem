@@ -1,0 +1,7 @@
+<h1>Team <%= @team.name %></h1>
+<ul>
+
+  <% @players.each do |player| %>
+    <li><%= link_to "#{player.name}", team_player_path(params[:id], player.id) %></a></li>
+  <% end %>
+</ul>
